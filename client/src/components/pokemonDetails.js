@@ -4,8 +4,11 @@ import { GET_TRAINER } from '../utils/queries'
 import { MdSave } from 'react-icons/md'
 import Container from './container'
 import Auth from '../utils/auth'
+import { useThemeContext } from '../ctx/themeContext'
 
 const PokemonDetails = props => {
+  const { theme } = useThemeContext()
+
   const {
     id,
     name,
@@ -47,7 +50,7 @@ const PokemonDetails = props => {
         <h3>ID: {id}</h3>
         {Auth.loggedIn() && (
           <button onClick={save}> 
-            <MdSave color="white" size={25} /> 
+            <MdSave color={theme === 'light' ? 'white' : 'black'} size={25} /> 
           </button>
         )}
       </div>
