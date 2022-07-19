@@ -4,7 +4,7 @@
   --primaryDarkest: #ab2222;
   --secondary: #3761a8;
   --secondaryLight: #c6d4ed;
-  --secondaryDark: #242329;
+  --secondaryDark: #151229;
   --hightlight: #feca1b;
   --hightlightDark: #aa8509;
   --light: #fefefe;
@@ -22,8 +22,17 @@ body {
   padding-bottom: 200px;
 }
 
+body.dark {
+  background: var(--secondaryDark);
+  color: var(--light);
+}
+
 h1, h2, h3 {
   color: var(--secondary);
+}
+
+.dark h1, .dark h2, .dark h3 {
+  color: var(--green);
 }
 
 code {
@@ -40,6 +49,10 @@ code {
   position: relative;
 }
 
+.dark .app-header {
+  background: var(--secondary);
+}
+
 .app-header .lense {
   display: grid;
   place-items: center;
@@ -49,6 +62,10 @@ code {
   border-radius: 100px;
   height: 45px;
   width: 45px;
+  position: relative;
+  top: 6px;
+  left: 15px;
+  z-index: 1;
 }
 
 .app-header::after {
@@ -60,6 +77,10 @@ code {
   bottom: -15px;
   left: 0;
   clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+}
+
+.dark .app-header::after {
+  background: var(--secondary);
 }
 
 .lights {
@@ -100,6 +121,10 @@ form {
   left: 0;
 }
 
+.dark #search-form {
+  background: var(--secondary);
+}
+
 #search-form .container {
   display: flex;
   align-items: center;
@@ -134,6 +159,12 @@ input, select {
   border-bottom-color: var(--hightlight);
 }
 
+#search-form input:focus {
+  color: var(--green);
+  background-color: var(--secondaryDark);
+  border-bottom-color: var(--light);
+}
+
 #login-form input {
   border-bottom: 3px solid var(--secondaryDark);
   margin-bottom: 15px;
@@ -155,6 +186,10 @@ input, select {
   padding: 15px;
 }
 
+.dark .screen {
+  background: var(--secondaryDark);
+}
+
 .results {
   padding: 0;
 }
@@ -174,7 +209,12 @@ button {
   border-bottom: 3px solid var(--secondaryDark);
 }
 
-.bg-green {
+.dark button {
+  color: var(--secondaryDark);
+  background-color: var(--light);
+}
+
+.bg-green, .dark button.bg-green {
   background: var(--green);
   color: var(--greenDark);
 }
