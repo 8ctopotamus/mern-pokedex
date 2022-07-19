@@ -14,6 +14,7 @@ import Auth from './utils/auth'
 import Search from './pages/search'
 import Trainer from './pages/trainer';
 import Login from './pages/login';
+import { ThemeProvider } from './ctx/themeContext'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -39,16 +40,18 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <BrowserRouter>
-        <Header />
-        <Screen>
-          <Routes>
-            <Route path="/" element={<Search />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/trainer/:id" element={<Trainer />} />
-          </Routes>
-        </Screen>
-      </BrowserRouter>
+      <ThemeProvider>
+        <BrowserRouter>
+          <Header />
+          <Screen>
+            <Routes>
+              <Route path="/" element={<Search />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/trainer/:id" element={<Trainer />} />
+            </Routes>
+          </Screen>
+        </BrowserRouter>
+      </ThemeProvider>
     </ApolloProvider>
   )
 }
