@@ -68,6 +68,12 @@ code {
   z-index: 1;
 }
 
+.dark .app-header .lense {
+  background: var(--secondaryDark);
+  border-color: var(--secondaryDark);
+  color: var(--light);
+}
+
 .app-header::after {
   content: '';
   background: var(--primaryDark);
